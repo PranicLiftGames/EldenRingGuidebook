@@ -32,18 +32,18 @@ Alpine.data('app', () => ({
         if (this.gamedata != null) {
             list = this.recombine(this.gamedata.weapons);
 
-            /**
-            list = Window._.filter(list, function(w) {
-              // return w.type == 1;
-              return true;
-            });
+            
+            // list = Window._.filter(list, function(w) {
+            // //   return w.type == 1;
+            //   return true;
+            // });
   
-            /**
-            list = Window._.uniqWith(list, function (first, second) {
-              return first.type + '.' + first.moveset_cat == second.type + '.' + second.moveset_cat;
-            });
-            list = Window._.sortBy(list, ['type']);
-            */
+
+            
+            // list = Window._.uniqWith(list, function (first, second) {
+            //   return first.type + '.' + first.moveset_cat == second.type + '.' + second.moveset_cat;
+            // });
+            // list = Window._.sortBy(list, ['type']);
         }
 
         return list;
@@ -69,8 +69,6 @@ Alpine.data('app', () => ({
                 newData[lang] = data;
 
                 window.AlpineI18n.create(lang, newData);
-                // AlpineI18n.locale = lang;
-                // AlpineI18n.fallbackLocale = 'en';
             })
             .catch((error) => {
                 console.error('Error:', error);

@@ -26,8 +26,8 @@ layout: layouts/base.njk
       </thead>
       <template x-for="weapon in currentList">
         <tr>
-          <td x-text="weapon.name"></td>
-          <td x-text="weapon.type_name" class="whitespace-nowrap"></td>
+          <td x-text="$t('weapons.' + weapon.id + '.name')"></td>
+          <td x-text="$t('weaponTypes.' + weapon.type + '-' + weapon.moveset_cat)" class="whitespace-nowrap"></td>
           <td x-text="weapon.req_str" class="whitespace-nowrap"></td>
         </tr>
       </template>
