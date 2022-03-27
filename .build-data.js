@@ -97,6 +97,7 @@ function getList(data, key) {
 function makeLanguageFile(lang) {
     var gamedata = JSON.parse(fs.readFileSync(__dirname + '/assets/json/gamedata.json'));
     var data = JSON.parse(fs.readFileSync(__dirname + '/assets/json/lang_' + lang + '.json'));
+    var appLangFile = __dirname + '/lang/' + lang + '.json';
 
     var r = {
         weapons: _.mapValues(_.invert(Object.keys(gamedata.weapons)), (value, key) => {
@@ -106,6 +107,12 @@ function makeLanguageFile(lang) {
             };
         })
     };
+
+    if (fs.existsSync(appLangFile)) {
+        r.app = JSON.parse(fs.readFileSync(appLangFile));
+    } else {
+        console.error('could not find file ' + appLangFile);
+    }
 
     r.weaponTypes = getList(data, 'weaponTypes');
 

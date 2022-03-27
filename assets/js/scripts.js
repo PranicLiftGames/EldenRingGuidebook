@@ -55,10 +55,6 @@ Alpine.data('app', () => ({
 
         return data.data;
     },
-    lang: {
-        'title': 'Elden Ring Quick Lookup',
-        'search_label': 'Search',
-    },
     loadLanguage(lang) {
         fetch('/json/lang_' + lang + '.json')
             .then(res => {
