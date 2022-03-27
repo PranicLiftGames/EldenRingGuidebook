@@ -100,12 +100,13 @@ function makeLanguageFile(lang) {
     var appLangFile = __dirname + '/lang/' + lang + '.json';
 
     var r = {
-        weapons: _.mapValues(_.invert(Object.keys(gamedata.weapons)), (value, key) => {
+        weapons: _.keyBy(_.map(gamedata.weapons, function (weapon) {
             return {
-                'name': data['weaponNames'][key],
-                'description': data['weaponCaptions'][key]
-            };
-        })
+                'id': weapon['id'],
+                'name': data['weaponNames'][weapon['id']],
+                'description': data['weaponCaptions'][weapon['id']]
+            }
+        }), 'id')
     };
 
     if (fs.existsSync(appLangFile)) {
