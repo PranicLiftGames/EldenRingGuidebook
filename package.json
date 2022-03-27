@@ -6,13 +6,14 @@
     "start": "NODE_ENV=development concurrently \"node hash\" \"npm run build-data\" \"ELEVENTY_ENV=development eleventy --serve\"  \"npm:watch-*\"",
     "build-css": "npx tailwindcss -i ./assets/css/styles.css -o ./_site/css/styles.css --minify",
     "build-js": "npx esbuild ./assets/js/scripts.js --outfile=./_site/js/scripts.js  --bundle --target=es2018 --minify",
-    "build-data": "mkdir ./_site/json && node .build-data.js",
+    "build-data": "mkdir -p ./_site/json && node .build-data.js",
     "build": "NODE_ENV=production concurrently \"npm:build-*\" && node hash && ELEVENTY_ENV=production eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-upgrade-help": "^1.0.1",
     "alpinejs": "^3.0.6",
+    "alpinejs-i18n": "^2.2.1",
     "autoprefixer": "^10.4.0",
     "concurrently": "^7.0.0",
     "del-cli": "^4.0.0",
